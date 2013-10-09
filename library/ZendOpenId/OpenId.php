@@ -438,9 +438,11 @@ class OpenId
                  "</script>");
         }
 
-        $response->setStatusCode(302);
+        if ($method == 'GET') {
+            $response->setStatusCode(302);
 
-        $response->getHeaders()->addHeaderLine('Location', $url);
+            $response->getHeaders()->addHeaderLine('Location', $url);
+        }
 
         if (!headers_sent()) {
             header($response->renderStatusLine());
