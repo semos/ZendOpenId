@@ -782,7 +782,7 @@ class GenericConsumer
      * @return bool
      */
     protected function _checkId($immediate, $id, $returnTo=null, $root=null,
-        $extensions=null, Response $response = null)
+        $extensions=null, Response $response = null, $method = 'GET')
     {
         $this->_setError('');
 
@@ -863,7 +863,7 @@ class GenericConsumer
             return false;
         }
 
-        OpenId::redirect($server, $params, $response);
+        OpenId::redirect($server, $params, $response, $method);
         return true;
     }
 
