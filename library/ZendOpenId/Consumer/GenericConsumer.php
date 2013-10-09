@@ -104,10 +104,11 @@ class GenericConsumer
      * @param mixed $extensions extension object or array of extensions objects
      * @param Response $response an optional response
      *  object to perform HTTP or HTML form redirection
+     * @param string $method HTTP method used to redirect to server
      * @return bool
      */
     public function login($id, $returnTo = null, $root = null, $extensions = null,
-                          Response $response = null)
+                          Response $response = null, $method = 'GET')
     {
         return $this->_checkId(
             false,
@@ -115,7 +116,8 @@ class GenericConsumer
             $returnTo,
             $root,
             $extensions,
-            $response);
+            $response,
+            $method);
     }
 
     /**
